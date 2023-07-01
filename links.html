@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ViTRAL</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+   <link rel="shortcut icon" href="a.png" type="image/x-icon">
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            background-color: #000;
+        }
+
+        .nav-link {
+            color: #fff;
+        }
+
+        .card {
+            border-radius: 10px;
+            border: none;
+            background-color: #000;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .cyberpunk2077 {
+            background-color: #000;
+            border: 2px solid #0f0;
+            box-shadow: 0 0 20px #0f0;
+            border-radius: 50px;
+        }
+
+        .card-title {
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .card-text {
+            font-size: 18px;
+        }
+
+        .card-text a {
+            color: #0f0;
+        }
+
+       
+        .animated-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .animated-background::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(0, 255, 0, 0.1) 50%, rgba(0, 0, 0, 0.9) 50%);
+            background-size: 200% 100%;
+            animation: animatedBackground 5s linear infinite;
+        }
+
+        @keyframes animatedBackground {
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: -200% 0;
+            }
+        }
+        #languageSelect {
+        background-color: #000;
+        color: #00ff00;
+        border: none;
+        padding: 10px;
+        font-family: "Courier New", monospace;
+        font-size: 16px;
+        outline: none;
+        box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    }
+
+    
+    #languageSelect option {
+        font-family: "Courier New", monospace;
+        font-size: 14px;
+        color: #00ff00;
+        background-color: #000;
+    }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <ul class="navbar-nav d-flex flex-row">
+                <li class="nav-item">
+                    <a class="nav-link" href="donat.html" id="donate">Поддержать автора</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link ms-5" href="index.html" id="home">Главная</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <div class="card cyberpunk2077">
+            <div class="card-body">
+                <h2 class="card-title" id="card-title">Мои контакты</h2>
+                <h4 class="card-text" id="discord-server">Дискорд сервер : <a href="https://discord.gg/mEuEASvpEc">кликабельно</a></h4>
+                <h4 class="card-text" id="discord-nickname">Дискорд никнейм: fogic.</h4>
+                <h4 class="card-text" id="telegram">Телеграм: <a href="https://t.me/ViTRAQ">ViTRAQ</a></h4>
+                <h3 class="card-title" id="contact-title">За поддержкой писать в телеграм</h3>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="container mt-3">
+        <div class="text-center">
+            <h4 id="la">Выберите язык:</h4>
+            <select id="languageSelect" onchange="changeLanguage()">
+                <option value="ru">Русский</option>
+                <option value="uk">Українська</option>
+                <option value="en">English</option>
+            </select>
+        </div>
+    </div>
+    
+    <div class="animated-background"></div>
+    <script>
+        function changeLanguage() {
+            var languageSelect = document.getElementById("languageSelect");
+            var selectedLanguage = languageSelect.value;
+    
+            var translations = {
+                'en': {
+                    'card-title' : 'My contacts',
+                    'discord-server' : 'Discord Server : https://discord.gg/jr8gAfsnsR',
+                    'discord-nickname' : 'Discord nickname: fogic.',
+                    'telegram' : 'Telegram: ViTRAQ',
+                    'contact-title' : 'For support, write to Telegram',
+                    'la' : 'Select a language:',
+                    'donate' : 'Support the authort',
+                    'home' : 'Home'
+                    
+                },
+                'uk': {
+                    'card-title' : 'Мої контакти',
+                    'discord-server' : 'Дискорд сервер : https://discord.gg/jr8gAfsnsR',
+                    'discord-nickname' : 'Дискорд нікнейм: fogic.',
+                    'telegram' : 'Телеграм: ViTRAQ',
+                    'contact-title' : 'За підтримкою писати в телеграм',
+                    'la' : 'Виберіть мову:',
+                    'donate' : 'Підтримати автора',
+                    'home' : 'Головна'
+                    
+                    
+                },
+                'ru': {
+                    'card-title' : 'Мои контакты',
+                    'discord-server' : 'Дискорд сервер : https://discord.gg/jr8gAfsnsR',
+                    'discord-nickname' : 'Дискорд никнейм: fogic.',
+                    'telegram' : 'Телеграм: ViTRAQ',
+                    'contact-title' : 'За поддержкой писать в телеграм',
+                    'la' : 'Выберите язык:',
+                    'donate' : 'Поддержать автора',
+                    'home' : 'Главная'
+                    
+                    
+                }
+            };
+    
+           
+            document.getElementById("card-title").textContent = translations[selectedLanguage]["card-title"];
+            document.getElementById("discord-server").textContent = translations[selectedLanguage]["discord-server"];
+            document.getElementById("discord-nickname").textContent = translations[selectedLanguage]["discord-nickname"];
+            document.getElementById("telegram").textContent = translations[selectedLanguage]["telegram"];
+            document.getElementById("contact-title").textContent = translations[selectedLanguage]["contact-title"];
+            document.getElementById("la").textContent = translations[selectedLanguage]["la"];
+            document.getElementById("donate").textContent = translations[selectedLanguage]["donate"];
+            document.getElementById("home").textContent = translations[selectedLanguage]["home"];
+        }
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
